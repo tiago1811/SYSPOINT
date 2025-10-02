@@ -1,0 +1,27 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2 class="title">Bem-vindo ao SYS-POINT</h2>
+    <p class="subtitle">Faça login para continuar</p>
+
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Usuário</mat-label>
+        <input matInput placeholder="Digite seu usuário" name="username" [(ngModel)]="username" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Senha</mat-label>
+        <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="Digite sua senha" name="password" [(ngModel)]="password" required>
+        <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword">
+          <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="login-btn" [disabled]="loginForm.invalid">
+        Entrar
+      </button>
+    </form>
+
+    <p class="footer-text">© 2025 SYS-POINT</p>
+  </div>
+</div>
